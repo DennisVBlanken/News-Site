@@ -20,4 +20,12 @@ class News_model extends CI_Model {
     } else {
     return false;}
     }
+
+    public function get_users() {
+        $this -> db -> select('*');
+        $this -> db -> from('users');
+
+        $query = $this -> db -> get();
+        return $query->result();
+    }
 }

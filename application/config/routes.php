@@ -56,4 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['news-site/home'] = 'home';
 $route['news-site/home/logout'] = 'home/logout';
 $route['news-site/verifylogin'] = 'verifylogin';
+$route['news-site/verifyregister'] = 'verifyregister';
 $route['news-site/register'] = 'news/register';
