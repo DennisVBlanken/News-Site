@@ -16,11 +16,21 @@ class News extends CI_Controller {
         $this->load->view('app/login', $data);
         $this->load->view('templates/footer');
 	}
+
     public function home() {
         $data['title'] = 'Home';
 
         $this->load->view('templates/header', $data);
         $this->load->view('app/home', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function register() {
+        $data['title'] = 'Register';
+
+        $this->load->helper(array('form'));
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/register', $data);
         $this->load->view('templates/footer');
     }
 }

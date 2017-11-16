@@ -52,3 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'news';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['news-site/home'] = 'home';
+$route['news-site/home/logout'] = 'home/logout';
+$route['news-site/verifylogin'] = 'verifylogin';
+$route['news-site/register'] = 'news/register';
