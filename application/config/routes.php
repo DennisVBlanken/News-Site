@@ -54,7 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['news-site/home'] = 'home';
+$route['news-site/adminhome'] = 'adminhome';
 $route['news-site/home/logout'] = 'home/logout';
+$route['news-site/adminhome/logout'] = 'adminhome/logout';
 $route['news-site/verifylogin'] = 'verifylogin';
 $route['news-site/verifyregister'] = 'verifyregister';
 $route['news-site/register'] = 'news/register';

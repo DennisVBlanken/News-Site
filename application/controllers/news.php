@@ -17,14 +17,6 @@ class News extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function home() {
-        $data['title'] = 'Home';
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('app/home', $data);
-        $this->load->view('templates/footer');
-    }
-
     public function register() {
         $data['title'] = 'Register';
 

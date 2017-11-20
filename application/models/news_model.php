@@ -7,13 +7,13 @@ class News_model extends CI_Model {
     }
 
     public function login($username, $password) {
-        $this -> db -> select('*');
-        $this -> db -> from('users');
-        $this -> db -> where('UserName', $username);
-        $this -> db -> where('UserPassword', $password);
-        $this -> db -> limit(1);
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('UserName', $username);
+        $this->db->where('UserPassword', $password);
+        $this->db->limit(1);
 
-        $query = $this -> db -> get();
+        $query = $this->db->get();
         
     if($query -> num_rows() == 1){
         return $query->result();
@@ -22,10 +22,19 @@ class News_model extends CI_Model {
     }
 
     public function get_users() {
-        $this -> db -> select('*');
-        $this -> db -> from('users');
+        $this->db->select('*');
+        $this->db->from('users');
 
-        $query = $this -> db -> get();
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_user($username) {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('username', $username);
+
+        $query = $this->db->get();
         return $query->result();
     }
 }

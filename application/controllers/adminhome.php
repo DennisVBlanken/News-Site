@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class AdminHome extends CI_Controller {
 
  public function __construct()
  {
@@ -12,11 +12,11 @@ class Home extends CI_Controller {
    if($this->session->userdata('logged_in'))
    {
      $session_data = $this->session->userdata('logged_in');
-     $data['title'] = 'Home';
+     $data['title'] = 'Admin Home';
      $data['id'] = $session_data['id'];
      $data['username'] = $session_data['username'];
      $data['rolename'] = $session_data['rolename'];
-     $this->load->view('app/home', $data);
+     $this->load->view('app/adminhome', $data);
    }
    else
    {

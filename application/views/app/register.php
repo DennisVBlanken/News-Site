@@ -10,5 +10,5 @@
      <label for="email">Email:</label>
      <input type="email" size="20" id="email" name="email"/>
      <br/>
-     <input type="submit" value="Login"/>
+     <input type="submit" value="Register"/> <a href="/news-site">Already Registered?</a>
    </form>
