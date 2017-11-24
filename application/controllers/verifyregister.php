@@ -37,6 +37,6 @@ class VerifyRegister extends CI_Controller {
       'UserEmail' => $email,
       'RoleName' => 'User'
 );
-    $this -> db -> insert('users', $data);
+    $this->db->insert('users', $data);
  }
 }

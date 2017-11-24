@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<main id="main">
 <h1>Register</h1>
   <?php echo validation_errors(); ?>
   <?php echo form_open('verifyregister'); ?>
@@ -12,3 +14,4 @@
      <br/>
      <input type="submit" value="Register"/> <a href="/news-site">Already Registered?</a>
    </form>
+  </main>

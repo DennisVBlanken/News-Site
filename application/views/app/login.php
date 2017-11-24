@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<main id="main">
 <h1>Login</h1>
   <?php echo validation_errors(); ?>
   <?php echo form_open('verifylogin'); ?>
@@ -9,3 +11,4 @@
      <br/>
      <input type="submit" value="Login"/> <a href="register">register</a>
    </form>
+ </main>

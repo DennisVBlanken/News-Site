@@ -37,4 +37,12 @@ class News_model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_posts() {
+        $this->db->select('*');
+        $this->db->from('posts');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

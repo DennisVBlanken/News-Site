@@ -1,0 +1,50 @@
+body{
+	background-color: grey;
+}
+
+#main{
+	background-color: white;
+	height: 200px;
+	width: 300px;
+	border-radius: 12px;
+}
+#home{
+	background-color: white;
+	width: 800px;
+	padding: 5px;
+	margin: 20px auto;
+	border-radius: 12px;
+}
+
+h1{
+	padding: 10px;
+}
+input{
+	margin: 5px;
+}
+label{
+	padding: 10px;
+}
+footer{
+	background-color: lightblue;
+	width: 300px;
+	z-index: -1;
+	padding-top: 20px;
+	position: relative;
+	top: -18px;
+	border-radius: 12px;
+}
+em{
+	padding-left: 30px;
+}
+div.posts{
+	background-color: lightblue;
+	width: 600px;
+	border-radius: 12px;
+	margin: 5px;
+	padding: 5px;
+}
+div.posts p{
+	padding: 5px;
+	font-family: arial;
+}
