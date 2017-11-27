@@ -12,11 +12,14 @@ class AdminHome extends CI_Controller {
    if($this->session->userdata('logged_in'))
    {
      $session_data = $this->session->userdata('logged_in');
-     $data['title'] = 'Admin Home';
+     $data['title'] = 'Home';
      $data['id'] = $session_data['id'];
      $data['username'] = $session_data['username'];
      $data['rolename'] = $session_data['rolename'];
-     $this->load->view('app/adminhome', $data);
+     $data['posts'] = $this->news_model->get_posts();
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/adminhome', $data);
+        $this->load->view('templates/footer');
    }
    else
    {
@@ -30,5 +33,4 @@ class AdminHome extends CI_Controller {
    session_destroy();
    redirect('home');
  }
-
 }
