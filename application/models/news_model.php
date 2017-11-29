@@ -45,4 +45,43 @@ class News_model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function set_post() {
+    $this->load->helper('url');
+
+    $data = array(
+        /*'bookAuthor' => $this->input->post('author'),
+        'bookTitle' => $this->input->post('title'),
+        'bookYear' => $this->input->post('year'),
+        'bookDesc' => $this->input->post('description'),
+        'bookGenre' => $this->input->post('genre'),*/
+    );
+
+
+    return $this->db->insert('books', $data);
+    }
+
+    public function update_post($id) {
+    $this->load->helper('url');
+
+    $data = array(
+        'bookID' => $id,
+        'bookAuthor' => $this->input->post('author'),
+        'bookTitle' => $this->input->post('title'),
+        'bookYear' => $this->input->post('year'),
+        'bookDesc' => $this->input->post('description'),
+        'bookGenre' => $this->input->post('genre'),
+    );
+
+    $this->db->where('bookID', $id);
+    $this->db->update('books', $data);
+    return "success";
+    }
+
+    public function delete_post($id) {
+    $this->load->helper('url');
+    $this->db->where('bookID', $id);
+    $this->db->delete('books');
+    return "success";
+    }
 }

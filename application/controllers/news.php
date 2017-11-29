@@ -25,4 +25,14 @@ class News extends CI_Controller {
         $this->load->view('app/register', $data);
         $this->load->view('templates/footer');
     }
+
+    public function edit() {
+        $data['title'] = 'Edit post';
+        $data['id'] = $this->uri->segment(3);
+
+        $this->load->helper(array('form'));
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/edit', $data);
+        $this->load->view('templates/footer');
+    }
 }

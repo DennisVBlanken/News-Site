@@ -2,11 +2,12 @@ body{
 	background-color: grey;
 }
 
-#main{
+#login{
 	background-color: white;
 	height: 200px;
 	width: 300px;
 	border-radius: 12px;
+	border: solid darkred 2px;
 }
 #home{
 	background-color: white;
@@ -14,6 +15,14 @@ body{
 	padding: 5px;
 	margin: 20px auto;
 	border-radius: 12px;
+	border: solid darkred 2px;
+}
+#edit{
+	background-color: white;
+	height: 300px;
+	width: 450px;
+	border-radius: 12px;
+	border: solid darkred 2px;
 }
 
 h1{
@@ -33,18 +42,43 @@ footer{
 	position: relative;
 	top: -18px;
 	border-radius: 12px;
+	border: solid blue 2px;
 }
 em{
 	padding-left: 30px;
 }
 div.posts{
+	display: table-cell;
 	background-color: lightblue;
 	width: 600px;
 	border-radius: 12px;
 	margin: 5px;
 	padding: 5px;
+	border: solid blue 1px;
 }
 div.posts p{
 	padding: 5px;
 	font-family: arial;
+}
+.postOutline{
+	display: inline-table;
+	padding: 10px;
+}
+.button{
+	text-decoration: none;
+	border: solid black 2px;
+	border-radius: 8px;
+	padding: 5px;
+	margin: 5px;
+	float: left;
+}
+.buttonOutline{
+	display: table-cell;
+	background-color: lightblue;
+	width: 150px;
+	border-radius: 12px;
+	border: solid blue 1px;
+	padding: 10px;
+}
+#content{
 }

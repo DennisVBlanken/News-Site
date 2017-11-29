@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<main id="main">
+<main id="login">
 <h1>Login</h1>
   <?php echo validation_errors(); ?>
   <?php echo form_open('verifylogin'); ?>

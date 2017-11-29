@@ -60,3 +60,4 @@ $route['news-site/adminhome/logout'] = 'adminhome/logout';
 $route['news-site/verifylogin'] = 'verifylogin';
 $route['news-site/verifyregister'] = 'verifyregister';
 $route['news-site/register'] = 'news/register';
+$route['news-site/edit/(:any)'] = 'news/edit/$1';
