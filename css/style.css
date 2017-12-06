@@ -1,5 +1,6 @@
 body{
 	background-color: grey;
+	font-family: Georgia;
 }
 
 #login{
@@ -8,6 +9,15 @@ body{
 	width: 300px;
 	border-radius: 12px;
 	border: solid darkred 2px;
+	margin: 0 auto;
+}
+#register{
+	background-color: white;
+	height: 200px;
+	width: 300px;
+	border-radius: 12px;
+	border: solid darkred 2px;
+	margin: 0 auto;
 }
 #home{
 	background-color: white;
@@ -16,6 +26,7 @@ body{
 	margin: 20px auto;
 	border-radius: 12px;
 	border: solid darkred 2px;
+	margin: 0 auto;
 }
 #edit{
 	background-color: white;
@@ -23,10 +34,50 @@ body{
 	width: 450px;
 	border-radius: 12px;
 	border: solid darkred 2px;
+	margin: 0 auto;
+}
+#create{
+	background-color: white;
+	height: 300px;
+	width: 450px;
+	border-radius: 12px;
+	border: solid darkred 2px;
+	margin: 0 auto;
+}
+
+.Link{
+	text-decoration: none;
+	color: black;
+}
+.Link:visited{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	font-weight: bold;
+}
+#username{
+	font-weight: bold;
 }
 
 h1{
 	padding: 10px;
+}
+#header{
+	border: solid black 2px;
+	border-radius: 12px;
+	padding: 20px;
+	margin: 0px 0px 2px 0px;
+	background-color: white;
+	text-shadow: 2px 1px 4px #FF0000;
+}
+#header2{
+	border: solid black 2px;
+	border-radius: 12px;
+	padding: 20px;
+	margin: 0px 0px 2px 0px;
+	background-color: white;
+	text-shadow: 2px 1px 4px #0000FF;
 }
 input{
 	margin: 5px;
@@ -43,6 +94,7 @@ footer{
 	top: -18px;
 	border-radius: 12px;
 	border: solid blue 2px;
+	margin: 0 auto;
 }
 em{
 	padding-left: 30px;
@@ -80,5 +132,26 @@ div.posts p{
 	border: solid blue 1px;
 	padding: 10px;
 }
-#content{
+#errors{
+	background-color: white;
+	margin: 0px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#errors p{
+	padding: 10px;
+	margin: 0px;
+	border: solid black 2px;
+}
+#usermenu{
+	float: right;
+	border: solid black 2px;
+	padding: 5px;
+	border-radius: 12px;
+	margin: 0px 10px 20px 0px;
+}
+a:visited {
+	color: blue;
+	text-decoration: underline;
 }

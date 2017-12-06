@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<main id="main">
+<div id="errors"> <?php echo validation_errors(); ?> </div>
+<main id="register">
 <h1>Register</h1>
-  <?php echo validation_errors(); ?>
   <?php echo form_open('verifyregister'); ?>
      <label for="username">Username:</label>
      <input type="text" size="20" id="username" name="username"/>

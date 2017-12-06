@@ -15,7 +15,10 @@ class VerifyLogin extends CI_Controller {
 
    if($this->form_validation->run() == FALSE)
    {
-     $this->load->view('app/login');
+      $data['title'] = 'News site';
+      $this->load->view('templates/header', $data);
+      $this->load->view('app/login', $data);
+      $this->load->view('templates/footer');
    }
    else
    {

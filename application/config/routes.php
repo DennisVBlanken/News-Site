@@ -60,4 +60,7 @@ $route['news-site/adminhome/logout'] = 'adminhome/logout';
 $route['news-site/verifylogin'] = 'verifylogin';
 $route['news-site/verifyregister'] = 'verifyregister';
 $route['news-site/register'] = 'news/register';
+$route['news-site/create'] = 'news/create';
+$route['news-site/edit'] = 'news/edit';
 $route['news-site/edit/(:any)'] = 'news/edit/$1';
+$route['news-site/delete/(:any)'] = 'news/delete/$1';

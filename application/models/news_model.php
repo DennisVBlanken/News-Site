@@ -46,42 +46,32 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
-    public function set_post() {
+    public function create_post() {
     $this->load->helper('url');
 
     $data = array(
-        /*'bookAuthor' => $this->input->post('author'),
-        'bookTitle' => $this->input->post('title'),
-        'bookYear' => $this->input->post('year'),
-        'bookDesc' => $this->input->post('description'),
-        'bookGenre' => $this->input->post('genre'),*/
+        'title' => $this->input->post('title'),
+        'content' => $this->input->post('content')
     );
 
-
-    return $this->db->insert('books', $data);
+    return $this->db->insert('posts', $data);
     }
 
     public function update_post($id) {
-    $this->load->helper('url');
-
     $data = array(
-        'bookID' => $id,
-        'bookAuthor' => $this->input->post('author'),
-        'bookTitle' => $this->input->post('title'),
-        'bookYear' => $this->input->post('year'),
-        'bookDesc' => $this->input->post('description'),
-        'bookGenre' => $this->input->post('genre'),
+        'id' => $id,
+        'title' => $this->input->post('title'),
+        'content' => $this->input->post('content')
     );
 
-    $this->db->where('bookID', $id);
-    $this->db->update('books', $data);
-    return "success";
+    $this->db->where('id', $id);
+    $this->db->update('posts', $data);
+    return "Nya";
     }
 
     public function delete_post($id) {
-    $this->load->helper('url');
-    $this->db->where('bookID', $id);
-    $this->db->delete('books');
-    return "success";
+    $this->db->where('id', $id);
+    $this->db->delete('posts');
+    return "Nya";
     }
 }
