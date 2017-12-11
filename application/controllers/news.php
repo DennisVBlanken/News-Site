@@ -34,6 +34,7 @@ class News extends CI_Controller {
         $data['id'] = $id;
         $data['title'] = 'Read more...';
         $session_data = $this->session->userdata('logged_in');
+        $data['userid'] = $session_data['ID'];
         $data['username'] = $session_data['username'];
         $data['menu'] = $this->news_model->get_menu();
         $data['comments'] = $this->news_model->get_comments($id);
