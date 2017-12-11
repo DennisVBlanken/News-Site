@@ -28,6 +28,15 @@ body{
 	border: solid darkred 2px;
 	margin: 0 auto;
 }
+#post{
+	background-color: white;
+	width: 800px;
+	padding: 5px;
+	margin: 20px auto;
+	border-radius: 12px;
+	border: solid darkred 2px;
+	margin: 0 auto;
+}
 #edit{
 	background-color: white;
 	height: 300px;
@@ -63,6 +72,7 @@ a:hover{
 h1{
 	padding: 10px;
 }
+
 #header{
 	border: solid black 2px;
 	border-radius: 12px;
@@ -79,12 +89,14 @@ h1{
 	background-color: white;
 	text-shadow: 2px 1px 4px #0000FF;
 }
+
 input{
 	margin: 5px;
 }
 label{
 	padding: 10px;
 }
+
 footer{
 	background-color: lightblue;
 	width: 300px;
@@ -99,10 +111,11 @@ footer{
 em{
 	padding-left: 30px;
 }
+
 div.posts{
 	display: table-cell;
 	background-color: lightblue;
-	width: 600px;
+	width: 500px;
 	border-radius: 12px;
 	margin: 5px;
 	padding: 5px;
@@ -112,6 +125,42 @@ div.posts p{
 	padding: 5px;
 	font-family: arial;
 }
+
+div.post{
+	background-color: lightblue;
+	width: 500px;
+	border-radius: 12px;
+	margin: 50px 0px 10px 20px;
+	padding: 5px;
+	border: solid blue 1px;
+}
+div.post p{
+	padding: 5px;
+	font-family: arial;
+}
+
+div.comments{
+	background-color: lightblue;
+	width: 400px;
+	border-radius: 12px;
+	margin: 20px 0px 10px 65px;
+	padding: 5px;
+	border: solid blue 1px;
+}
+div.comments p{
+	padding: 5px;
+	font-family: arial;
+}
+.postedby{
+	font-size: 15px;
+	padding: 0px;
+	margin: 0px;
+}
+.cuser{
+	font-size: 18px;
+	font-weight: bold;
+}
+
 .postOutline{
 	display: inline-table;
 	padding: 10px;
@@ -132,6 +181,7 @@ div.posts p{
 	border: solid blue 1px;
 	padding: 10px;
 }
+
 #errors{
 	background-color: white;
 	margin: 0px;
@@ -144,6 +194,7 @@ div.posts p{
 	margin: 0px;
 	border: solid black 2px;
 }
+
 #usermenu{
 	float: right;
 	border: solid black 2px;
@@ -151,7 +202,38 @@ div.posts p{
 	border-radius: 12px;
 	margin: 0px 10px 20px 0px;
 }
+
+#menu{
+	background-color: grey;
+	border: solid black 2px;
+	width: 90px;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 12px;
+	float: left;
+}
+.menu{
+	text-decoration: none;
+	color: white;
+}
+.menu:visited {
+	color: white;
+}
+.menu:hover {
+	font-weight: normal;
+	color: black;
+}
+
 a:visited {
 	color: blue;
 	text-decoration: underline;
+}
+
+.Line{
+	background-color: grey;
+	height: 0px;
+	padding: 1px !important;
+	margin: 0px;
+	border-radius: 12px;
 }

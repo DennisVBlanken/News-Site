@@ -46,6 +46,41 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_post($id) {
+        $this->db->select('*');
+        $this->db->from('posts');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_comments($id) {
+        $this->db->select('*');
+        $this->db->from('comments');
+        $this->db->where('postid', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_menu() {
+        $this->db->select('*');
+        $this->db->from('menu');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_username($id) {
+        $this->db->select('UserName');
+        $this->db->from('users');
+        $this->db->where('ID', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function create_post() {
     $this->load->helper('url');
 

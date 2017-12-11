@@ -17,6 +17,7 @@ class Home extends CI_Controller {
      $data['username'] = $session_data['username'];
      $data['rolename'] = $session_data['rolename'];
      $data['posts'] = $this->news_model->get_posts();
+     $data['menu'] = $this->news_model->get_menu();
         $this->load->view('templates/header', $data);
         $this->load->view('app/home', $data);
         $this->load->view('templates/footer');

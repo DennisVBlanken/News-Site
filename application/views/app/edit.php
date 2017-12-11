@@ -1,3 +1,4 @@
+<?php if ($rolename === 'Admin') {}else redirect('home') ?>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <div id="errors"> <?php echo validation_errors(); ?> </div>
 <main id="edit">

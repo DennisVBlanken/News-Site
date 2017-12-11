@@ -10,6 +10,7 @@ class News extends CI_Controller {
 
     public function index() {
         $data['title'] = 'News site';
+        $data['menu'] = $this->news_model->get_menu();
 
         $this->load->helper(array('form'));
         $this->load->view('templates/header', $data);
@@ -19,10 +20,27 @@ class News extends CI_Controller {
 
     public function register() {
         $data['title'] = 'Register';
+        $data['menu'] = $this->news_model->get_menu();
 
         $this->load->helper(array('form'));
         $this->load->view('templates/header', $data);
         $this->load->view('app/register', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function post() {
+        $id = $this->uri->segment(3);
+        $data['post'] = $this->news_model->get_post($id);
+        $data['id'] = $id;
+        $data['title'] = 'Read more...';
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['menu'] = $this->news_model->get_menu();
+        $data['comments'] = $this->news_model->get_comments($id);
+
+        $this->load->helper(array('form'));
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/post', $data);
         $this->load->view('templates/footer');
     }
 
@@ -34,6 +52,9 @@ class News extends CI_Controller {
         $this->form_validation->set_rules('content', 'Content', 'required');
 
         $data['title'] = 'create post';
+        $session_data = $this->session->userdata('logged_in');
+        $data['rolename'] = $session_data['rolename'];
+        $data['menu'] = $this->news_model->get_menu();
 
     if ($this->form_validation->run() === FALSE) {
         $this->load->view('templates/header', $data);
@@ -56,6 +77,9 @@ class News extends CI_Controller {
         $this->form_validation->set_rules('content', 'Content', 'required');
 
         $data['title'] = 'Edit post';
+        $session_data = $this->session->userdata('logged_in');
+        $data['rolename'] = $session_data['rolename'];
+        $data['menu'] = $this->news_model->get_menu();
         $data['id'] = $this->uri->segment(3);
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header', $data);
