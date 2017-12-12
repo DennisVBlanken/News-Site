@@ -101,10 +101,12 @@ class News extends CI_Controller {
 
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
+        $this->form_validation->set_rules('cid', 'Cid', 'required');
 
         $data['title'] = 'create post';
         $session_data = $this->session->userdata('logged_in');
         $data['rolename'] = $session_data['rolename'];
+        $data['categories'] = $this->news_model->get_categories();
 
     if ($this->form_validation->run() === FALSE) {
         $this->load->view('templates/header', $data);
@@ -125,11 +127,13 @@ class News extends CI_Controller {
 
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
+        $this->form_validation->set_rules('cid', 'Cid', 'required');
 
         $data['title'] = 'Edit post';
         $session_data = $this->session->userdata('logged_in');
         $data['rolename'] = $session_data['rolename'];
         $data['id'] = $this->uri->segment(3);
+        $data['categories'] = $this->news_model->get_categories();
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('app/edit', $data);

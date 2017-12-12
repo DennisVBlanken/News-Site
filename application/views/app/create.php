@@ -10,6 +10,13 @@
      <label for="content">News text:</label>
      <textarea name="content" id="content" cols="40" rows="5"></textarea>
      <br/>
+     <label for="title">Categorie:</label>
+     <select name="cid">
+<?php foreach ($categories as $categorie): ?>
+      <option value="<?= $categorie->id; ?>"><?= $categorie->name; ?></option>
+<?php endforeach ?>
+     </select>
+     <br/>
      <input type="submit" value="Create"/>
     <a class="button" href="home">Go back</a>
    </form>

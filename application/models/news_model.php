@@ -125,7 +125,8 @@ class News_model extends CI_Model {
 
     $data = array(
         'title' => $this->input->post('title'),
-        'content' => $this->input->post('content')
+        'content' => $this->input->post('content'),
+        'cid' => $this->input->post('cid')
     );
 
     return $this->db->insert('posts', $data);
@@ -135,7 +136,8 @@ class News_model extends CI_Model {
     $data = array(
         'id' => $id,
         'title' => $this->input->post('title'),
-        'content' => $this->input->post('content')
+        'content' => $this->input->post('content'),
+        'cid' => $this->input->post('cid')
     );
 
     $this->db->where('id', $id);
