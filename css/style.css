@@ -28,6 +28,15 @@ body{
 	border: solid darkred 2px;
 	margin: 0 auto;
 }
+#categories{
+	background-color: white;
+	width: 800px;
+	padding: 5px;
+	margin: 20px auto;
+	border-radius: 12px;
+	border: solid darkred 2px;
+	margin: 0 auto;
+}
 #post{
 	background-color: white;
 	width: 800px;
@@ -165,6 +174,27 @@ div.comments p{
 	display: inline-table;
 	padding: 10px;
 }
+#categorie{
+	background-color: lightblue;
+	text-decoration: none;
+	border: solid black 2px;
+	border-radius: 8px;
+	padding: 5px;
+	margin: 5px;
+	display: inline-block;
+}
+.categorie{
+	text-decoration: none;
+	color: black;
+}
+.categorie:visited {
+	color: grey;
+}
+.categorie:hover {
+	text-decoration: underline;
+	font-weight: normal;
+	color: black;
+}
 .button{
 	text-decoration: none;
 	border: solid black 2px;
@@ -195,6 +225,31 @@ div.comments p{
 	border: solid black 2px;
 }
 
+#commentC{
+	background-color: grey;
+	padding: 5px 0px 5px 20px;
+	margin: 20px 10px 15px 15px;
+	border-radius: 12px;
+	width: 500px;
+	text-shadow: 1px 1px white;
+	font-family: arial;
+}
+#commentl{
+	float: left;
+}
+#comment{
+	max-width: 380px;
+	min-width: 264px;
+	max-height: 288px;
+	min-height: 116px;
+}
+#content{
+	max-width: 320px;
+	min-width: 264px;
+	max-height: 122px;
+	min-height: 100px;
+}
+
 #usermenu{
 	float: right;
 	border: solid black 2px;
@@ -211,7 +266,7 @@ div.comments p{
 	padding: 5px;
 	text-align: center;
 	border-radius: 12px;
-	float: left;
+	display: inline-block;
 }
 .menu{
 	text-decoration: none;

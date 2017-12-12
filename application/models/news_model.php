@@ -72,6 +72,32 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_categories() {
+        $this->db->select('*');
+        $this->db->from('categories');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_categorie($id) {
+        $this->db->select('name');
+        $this->db->from('categories');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_posts_bc($id) {
+        $this->db->select('*');
+        $this->db->from('posts');
+        $this->db->where('cid', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_username($id) {
         $this->db->select('UserName');
         $this->db->from('users');
@@ -79,6 +105,19 @@ class News_model extends CI_Model {
 
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function post_comment() {
+    $this->load->helper('url');
+
+    $data = array(
+        'comment' => $this->input->post('comment'),
+        'postid' => $this->input->post('postid'),
+        'userid' => $this->input->post('userid')
+    );
+    $this->db->insert('comments', $data);
+
+    return 'Nya';
     }
 
     public function create_post() {

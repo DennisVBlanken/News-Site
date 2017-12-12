@@ -28,6 +28,35 @@ class News extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function categories() {
+        $data['title'] = 'Categories';
+        $session_data = $this->session->userdata('logged_in');
+        $data['userid'] = $session_data['id'];
+        $data['username'] = $session_data['username'];
+        $data['menu'] = $this->news_model->get_menu();
+        $data['categories'] = $this->news_model->get_categories();
+
+        $this->load->helper(array('form'));
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/categories', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function categorie() {
+        $id = $this->uri->segment(3);
+        $data['posts'] = $this->news_model->get_posts_bc($id);
+        $title = $this->news_model->get_categorie($id);
+        $data['title'] = $title[0]->name;
+        $session_data = $this->session->userdata('logged_in');
+        $data['userid'] = $session_data['id'];
+        $data['username'] = $session_data['username'];
+        $data['menu'] = $this->news_model->get_menu();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/categorie', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function post() {
         $id = $this->uri->segment(3);
         $data['post'] = $this->news_model->get_post($id);
@@ -45,6 +74,27 @@ class News extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function postcomment() {
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('comment', 'Comment', 'required');
+        $this->form_validation->set_rules('postid', 'Postid', 'required');
+        $this->form_validation->set_rules('userid', 'Userid', 'required');
+
+        $id = $this->uri->segment(3);
+        if ($this->form_validation->run() === FALSE) {
+                redirect('post/'.$id);
+        }
+    else{
+            $result = $this->news_model->post_comment();
+            if ($result == 'Nya') {
+                redirect('post/'.$id);
+            }
+        redirect('post/'.$id);
+        }
+    }
+
     public function create() {
         $this->load->helper(array('form'));
         $this->load->library('form_validation');
@@ -55,7 +105,6 @@ class News extends CI_Controller {
         $data['title'] = 'create post';
         $session_data = $this->session->userdata('logged_in');
         $data['rolename'] = $session_data['rolename'];
-        $data['menu'] = $this->news_model->get_menu();
 
     if ($this->form_validation->run() === FALSE) {
         $this->load->view('templates/header', $data);
@@ -80,7 +129,6 @@ class News extends CI_Controller {
         $data['title'] = 'Edit post';
         $session_data = $this->session->userdata('logged_in');
         $data['rolename'] = $session_data['rolename'];
-        $data['menu'] = $this->news_model->get_menu();
         $data['id'] = $this->uri->segment(3);
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header', $data);
@@ -97,10 +145,14 @@ class News extends CI_Controller {
     }
 
     public function delete() {
-    $id = $this->uri->segment(3);
-    $result = $this->news_model->delete_post($id);
-        if ($result == 'Nya') {
-            redirect('home');
+        $session_data = $this->session->userdata('logged_in');
+        if ($session_data['rolename']== 'Admin') {
+            $id = $this->uri->segment(3);
+            $result = $this->news_model->delete_post($id);
+                if ($result == 'Nya') {
+                    redirect('home');
+            }
         }
+        redirect('home');
     }
 }
