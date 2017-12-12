@@ -3,8 +3,8 @@
 <main id="home">
 <h1 id="header">Admin Home</h1>
 <span id="usermenu">
-<span id="username"><?php echo $username."|"; ?></span>
-<a class="Link" href="home/logout">Logout</a>|
+<span id="username"><?php echo $username; ?>|</span>
+<a class="Link" href="home/logout">Logout|</a>
 <a class="Link" href="create">create</a>
 </span>
 	<?php foreach ($menu as $b): ?>

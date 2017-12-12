@@ -12,6 +12,6 @@
      <label for="email">Email:</label>
      <input type="email" size="20" id="email" name="email"/>
      <br/>
-     <input type="submit" value="Register"/> <a href="/news-site">Already Registered?</a>
+     <input type="submit" value="Register"/> <a class="Link" href="/news-site">Already Registered?</a>
    </form>
   </main>

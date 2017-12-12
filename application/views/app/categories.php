@@ -2,8 +2,8 @@
 <main id="categories">
 <h1 id="header2">Categories</h1>
 <span id="usermenu">
-<span id="username"><?php echo $username ?></span>
-<a id="logout" href="home/logout">Logout</a>
+<span id="username"><?php echo $username ?>|</span>
+<a class="Link" href="home/logout">Logout</a>
 </span>
 	<?php foreach ($menu as $b): ?>
 	<div id="menu">

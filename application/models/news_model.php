@@ -148,6 +148,9 @@ class News_model extends CI_Model {
     public function delete_post($id) {
     $this->db->where('id', $id);
     $this->db->delete('posts');
+
+    $this->db->where('postid', $id);
+    $this->db->delete('comments');
     return "Nya";
     }
 }
