@@ -21,7 +21,7 @@ body{
 }
 #home{
 	background-color: white;
-	width: 800px;
+	width: 710px;
 	padding: 5px;
 	margin: 20px auto;
 	border-radius: 12px;
@@ -48,16 +48,20 @@ body{
 }
 #edit{
 	background-color: white;
-	height: 300px;
-	width: 450px;
+	min-height: 300px;
+	max-height: 330px;
+	width: 425px;
+	max-width: 450px;
 	border-radius: 12px;
 	border: solid darkred 2px;
 	margin: 0 auto;
 }
 #create{
 	background-color: white;
-	height: 300px;
-	width: 450px;
+	min-height: 300px;
+	max-height: 330px;
+	width: 425px;
+	max-width: 450px;
 	border-radius: 12px;
 	border: solid darkred 2px;
 	margin: 0 auto;
@@ -291,4 +295,31 @@ a:visited {
 	padding: 1px !important;
 	margin: 0px;
 	border-radius: 12px;
+}
+
+#title{
+	margin-left: 37px;
+}
+select{
+	margin-left: 2px;
+}
+
+#widget{
+	background-color: blue;
+	width: 250px;
+	border-radius: 12px;
+	padding: 5px 5px 5px 5px;
+	position: absolute;
+	top: 150px;
+	left: -220px;
+	z-index: -1;
+}
+#widget h2{
+	padding-left: 10px;
+}
+#wrap{
+	display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }

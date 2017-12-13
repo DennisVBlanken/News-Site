@@ -1,5 +1,14 @@
 <?php if ($rolename === 'Admin') {}else redirect('home') ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+<div id="wrap">
+<div id="widget">
+	<h2>Recent updates:</h2>
+	<!-- <?php foreach ($latest as $x): ?>
+	<div id="latest">
+		<a href="post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a>
+	</div>
+	<?php endforeach ?> -->
+</div>
 <main id="home">
 <h1 id="header">Admin Home</h1>
 <span id="usermenu">
@@ -25,4 +34,4 @@
 </div>
 	</div>
 <?php endforeach ?>
-</main>
+</main></div>
