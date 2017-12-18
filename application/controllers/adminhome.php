@@ -18,6 +18,7 @@ class AdminHome extends CI_Controller {
      $data['rolename'] = $session_data['rolename'];
      $data['posts'] = $this->news_model->get_posts();
      $data['menu'] = $this->news_model->get_menu();
+     $data['latest'] = $this->news_model->get_latest();
         $this->load->view('templates/header', $data);
         $this->load->view('app/adminhome', $data);
         $this->load->view('templates/footer');

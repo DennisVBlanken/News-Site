@@ -89,6 +89,16 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_latest() {
+        $this->db->select('*');
+        $this->db->from('posts');
+        $this->db->order_by("time");
+        $this->db->limit(5, 0);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_posts_bc($id) {
         $this->db->select('*');
         $this->db->from('posts');

@@ -3,11 +3,11 @@
 <div id="wrap">
 <div id="widget">
 	<h2>Recent updates:</h2>
-	<!-- <?php foreach ($latest as $x): ?>
+	<?php foreach ($latest as $x): ?>
 	<div id="latest">
-		<a href="post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a>
+		<h3><a href="post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a></h3>
 	</div>
-	<?php endforeach ?> -->
+	<?php endforeach ?>
 </div>
 <main id="home">
 <h1 id="header">Admin Home</h1>
