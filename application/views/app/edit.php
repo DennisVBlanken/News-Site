@@ -6,15 +6,17 @@
   <?php $hidden = array('id' => $id);
         echo form_open('edit/'.$id, '', $hidden); ?>
      <label for="title">Title:</label>
-     <input type="text" size="20" id="title" name="title"/>
+     <input type="text" size="20" id="title" name="title" value="<?= $post[0]->title ?>"/>
      <br/>
      <label for="content">News text:</label>
-     <textarea name="content" id="content" cols="40" rows="5"></textarea>
+     <textarea name="content" id="content" cols="40" rows="5"><?= $post[0]->content ?></textarea>
      <br/>
      <label for="title">Categorie:</label>
      <select name="cid">
 <?php foreach ($categories as $categorie): ?>
-      <option value="<?= $categorie->id; ?>"><?= $categorie->name; ?></option>
+      <option <?php if ($categorie->id === $post[0]->cid) {
+            echo "selected";
+      } ?> value="<?= $categorie->id; ?>"><?= $categorie->name; ?></option>
 <?php endforeach ?>
      </select>
      <br/>

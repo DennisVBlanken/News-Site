@@ -1,17 +1,22 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
 <main id="post">
-<h1 id="header2">-<?php foreach ($post as $a) { echo $a->title; } ?>-</h1>
+<h1 id="header2">-<?php echo $post[0]->title; ?>-</h1>
 <span id="usermenu">
 	<span id="username"><?php echo $username ?>|</span>
 	<a class="Link" href="../home/logout">Logout</a>
 </span>
-	<?php foreach ($menu as $b): ?>
+	<?php foreach ($menu as $m): ?>
 	<div id="menu">
-		<a href="../<?= $b->url ?>" class="menu"><?php echo $b->title ?></a>
+		<a href="../<?= $m->url ?>" class="menu"><?php echo $m->title ?></a>
 	</div>
 	<?php endforeach ?>
 <div class="post">
-	<p class="postContent"><?php foreach ($post as $a) { echo $a->content; } ?></p>
+		<?php if (isset($post[0]->image)) {
+			echo '<img class="pImage" src="../uploads/'.$post[0]->image.'">';
+		} ?>
+	<p class="postContent">
+		<?= $post[0]->content; ?>
+	</p>
 </div>
 <?php foreach ($comments as $comment): ?>
 	<div class="comments">

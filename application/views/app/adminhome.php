@@ -25,7 +25,11 @@
 	<div class="postOutline">
 <div class="posts">
 	<h1 class="postTitle"><?= $post->title; ?></h1>
-	<p class="postContent"><?= $post->content; ?></p>
+	<p class="postContent">
+		<?php if (isset($post->image)) {
+			echo '<img class="postImage" src="uploads/'.$post->image.'">';
+		} echo $post->content; ?>
+	</p>
 	<a href="post/<?= $post->id; ?>">Read more...</a>
 </div>
 <div class="buttonOutline">

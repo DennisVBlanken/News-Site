@@ -120,7 +120,7 @@ class News extends CI_Controller {
         }
     else{
         $result = $this->news_model->create_post();
-            if ($result == 'Nya') {
+            if ($result === 'Nya') {
                 redirect('home');
             }
         }
@@ -137,8 +137,9 @@ class News extends CI_Controller {
         $data['title'] = 'Edit post';
         $session_data = $this->session->userdata('logged_in');
         $data['rolename'] = $session_data['rolename'];
-        $data['id'] = $this->uri->segment(3);
         $data['categories'] = $this->news_model->get_categories();
+        $data['id'] = $this->uri->segment(3);
+        $data['post'] = $this->news_model->get_post($data['id']);
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header', $data);
                 $this->load->view('app/edit', $data);

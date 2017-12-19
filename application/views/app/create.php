@@ -1,6 +1,6 @@
 <?php if ($rolename === 'Admin') {}else redirect('home') ?>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div id="errors"> <?php echo validation_errors(); ?> </div>
+<div id="errors"> <?php if (isset($error)) { echo $error; } ?> </div>
 <main id="create">
 <h1>Create post</h1>
   <?php echo form_open_multipart('create'); ?>

@@ -51,7 +51,6 @@ class News_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('posts');
         $this->db->where('id', $id);
-        $this->db->order_by("time",'DESC');
 
         $query = $this->db->get();
         return $query->result();
@@ -136,15 +135,32 @@ class News_model extends CI_Model {
     public function create_post() {
     $this->load->helper('url');
 
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 100;
+        $config['max_width'] = 1024;
+        $config['max_height'] = 768;
+        $config['max_filename_increment'] = 5;
+
+        $this->load->library('upload', $config);
+    if( ! $this->upload->do_upload('image')){
+            $error = array('error' => $this->upload->display_errors());
+
+            $this->load->view('app/create', $error);
+        } else{
+            $image_data = $this->upload->data();
+
     $date = new DateTime();
     $data = array(
         'title' => $this->input->post('title'),
         'content' => $this->input->post('content'),
         'cid' => $this->input->post('cid'),
-        'time' => $date->format('Y-m-d H:i:s')
+        'time' => $date->format('Y-m-d H:i:s'),
+        'image' => $image_data['file_name']
     );
-
-    return $this->db->insert('posts', $data);
+        $this->db->insert('posts', $data);
+    return 'Nya';   
+        }
     }
 
     public function update_post($id) {

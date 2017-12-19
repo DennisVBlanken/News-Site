@@ -152,6 +152,23 @@ div.post p{
 	font-family: arial;
 }
 
+.postImage{
+	float: left;
+	max-height: 160px;
+	max-width: 160px;
+	padding: 5px;
+}
+.postTitle{
+	margin: 10px;
+	padding: 5px;
+}
+.pImage{
+	float: left;
+	max-height: 240px;
+	max-width: 240px;
+	padding: 5px;
+}
+
 div.comments{
 	background-color: lightblue;
 	width: 400px;
