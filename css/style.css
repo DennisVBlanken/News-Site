@@ -58,10 +58,10 @@ body{
 }
 #create{
 	background-color: white;
-	min-height: 300px;
-	max-height: 330px;
-	width: 425px;
-	max-width: 450px;
+	min-height: 320px;
+	max-height: 360px;
+	width: 480px;
+	max-width: 500px;
 	border-radius: 12px;
 	border: solid darkred 2px;
 	margin: 0 auto;

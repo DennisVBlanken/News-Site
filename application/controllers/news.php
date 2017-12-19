@@ -6,6 +6,7 @@ class News extends CI_Controller {
         parent::__construct();
         $this->load->model('news_model');
         $this->load->helper('url_helper');
+        require_once '/Faker/src/autoload.php';
     }
 
     public function index() {
@@ -102,6 +103,10 @@ class News extends CI_Controller {
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
         $this->form_validation->set_rules('cid', 'Cid', 'required');
+
+        $faker = Faker\Factory::create();
+        $data['text'] = $faker->text($maxNbChars = 350);
+        $data['titlee'] = $faker->word;
 
         $data['title'] = 'create post';
         $session_data = $this->session->userdata('logged_in');

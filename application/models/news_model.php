@@ -41,6 +41,7 @@ class News_model extends CI_Model {
     public function get_posts() {
         $this->db->select('*');
         $this->db->from('posts');
+        $this->db->order_by("time",'DESC');
 
         $query = $this->db->get();
         return $query->result();
@@ -50,6 +51,7 @@ class News_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('posts');
         $this->db->where('id', $id);
+        $this->db->order_by("time",'DESC');
 
         $query = $this->db->get();
         return $query->result();
@@ -92,7 +94,7 @@ class News_model extends CI_Model {
     public function get_latest() {
         $this->db->select('*');
         $this->db->from('posts');
-        $this->db->order_by("time");
+        $this->db->order_by("time",'DESC');
         $this->db->limit(5, 0);
 
         $query = $this->db->get();
@@ -103,6 +105,7 @@ class News_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('posts');
         $this->db->where('cid', $id);
+        $this->db->order_by("time",'DESC');
 
         $query = $this->db->get();
         return $query->result();
@@ -133,10 +136,12 @@ class News_model extends CI_Model {
     public function create_post() {
     $this->load->helper('url');
 
+    $date = new DateTime();
     $data = array(
         'title' => $this->input->post('title'),
         'content' => $this->input->post('content'),
-        'cid' => $this->input->post('cid')
+        'cid' => $this->input->post('cid'),
+        'time' => $date->format('Y-m-d H:i:s')
     );
 
     return $this->db->insert('posts', $data);
