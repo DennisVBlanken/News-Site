@@ -1,5 +1,14 @@
 <?php if ($rolename === 'Admin') {redirect('adminhome');} ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+<div id="wrap">
+<div id="widget">
+	<h2>Recent updates:</h2>
+	<?php foreach ($latest as $x): ?>
+	<div id="latest">
+		<h3><a href="post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a></h3>
+	</div>
+	<?php endforeach ?>
+</div>
 <main id="home">
 <h1 id="header2">Home</h1>
 <span id="usermenu">
@@ -15,9 +24,13 @@
 	<div class="postOutline">
 <div class="posts">
 	<h1 class="postTitle"><?= $post->title; ?></h1>
-	<p class="postContent"><?= $post->content; ?></p>
+	<p class="postContent">
+		<?php if (isset($post->image)) {
+			echo '<img class="postImage" src="uploads/'.$post->image.'">';
+		} echo $post->content; ?>
+	</p>
 	<a href="post/<?= $post->id; ?>">Read more...</a>
 </div>
 	</div>
 <?php endforeach ?>
-</main>
+</main></div>

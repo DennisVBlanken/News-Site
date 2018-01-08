@@ -5,10 +5,10 @@
 <h1>Create post</h1>
   <?php echo form_open_multipart('create'); ?>
      <label for="title">Title:</label>
-     <input type="text" size="20" id="title" name="title" value="<?= $titlee ?>" />
+     <input type="text" size="20" id="title" name="title" />
      <br/>
      <label for="content">News text:</label>
-     <textarea name="content" id="content" cols="40" rows="5"><?= $text ?></textarea>
+     <textarea name="content" id="content" cols="40" rows="5"></textarea>
      <br/>
      <label for="title">Categorie:</label>
      <select name="cid">

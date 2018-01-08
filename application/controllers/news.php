@@ -69,6 +69,9 @@ class News extends CI_Controller {
         $data['menu'] = $this->news_model->get_menu();
         $data['comments'] = $this->news_model->get_comments($id);
 
+        $faker = Faker\Factory::create();
+        $data['text'] = $faker->sentence($nbWords = 6, $variableNbWords = true);
+
         $this->load->helper(array('form'));
         $this->load->view('templates/header', $data);
         $this->load->view('app/post', $data);
@@ -103,10 +106,6 @@ class News extends CI_Controller {
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
         $this->form_validation->set_rules('cid', 'Cid', 'required');
-
-        $faker = Faker\Factory::create();
-        $data['text'] = $faker->text($maxNbChars = 350);
-        $data['titlee'] = $faker->word;
 
         $data['title'] = 'create post';
         $session_data = $this->session->userdata('logged_in');

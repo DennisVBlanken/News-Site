@@ -155,7 +155,7 @@ div.post p{
 .postImage{
 	float: left;
 	max-height: 160px;
-	max-width: 160px;
+	max-width: 260px;
 	padding: 5px;
 }
 .postTitle{
