@@ -65,6 +65,15 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_links($id) {
+        $this->db->select('*');
+        $this->db->from('bijlages');
+        $this->db->where('pid', $id);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_menu() {
         $this->db->select('*');
         $this->db->from('menu');

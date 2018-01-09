@@ -68,9 +68,7 @@ class News extends CI_Controller {
         $data['username'] = $session_data['username'];
         $data['menu'] = $this->news_model->get_menu();
         $data['comments'] = $this->news_model->get_comments($id);
-
-        $faker = Faker\Factory::create();
-        $data['text'] = $faker->sentence($nbWords = 6, $variableNbWords = true);
+        $data['links'] = $this->news_model->get_links($id);
 
         $this->load->helper(array('form'));
         $this->load->view('templates/header', $data);
