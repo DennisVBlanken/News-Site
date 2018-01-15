@@ -17,11 +17,13 @@
 	<p class="postContent">
 		<?= $post[0]->content; ?>
 	</p>
+<?php if (isset($links[0]->url)) { ?>
 		<p class="link">
 		<?php foreach ($links as $link): ?>
 			<a href="<?= $link->url ?>"><?= $link->title ?></a>
 		<?php endforeach ?>
 		</p>
+<?php } ?>
 </div>
 <?php foreach ($comments as $comment): ?>
 	<div class="comments">

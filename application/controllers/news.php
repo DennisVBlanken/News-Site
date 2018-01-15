@@ -97,6 +97,32 @@ class News extends CI_Controller {
         }
     }
 
+    public function links() {
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
+        $id = $this->uri->segment(3);
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('url', 'Url', 'required');
+
+        $data['title'] = 'add link';
+        $session_data = $this->session->userdata('logged_in');
+        $data['rolename'] = $session_data['rolename'];
+        $data['id'] = $this->uri->segment(3);
+
+    if ($this->form_validation->run() === FALSE) {
+        $this->load->view('templates/header', $data);
+        $this->load->view('app/links', $data);
+        $this->load->view('templates/footer');
+        }
+    else{
+        $result = $this->news_model->add_link($id);
+            if ($result === 'Nya') {
+                redirect('home');
+            }
+        }
+    }
+
     public function create() {
         $this->load->helper(array('form'));
         $this->load->library('form_validation');

@@ -34,7 +34,8 @@
 </div>
 <div class="buttonOutline">
 	<a class="button" href="edit/<?= $post->id; ?>">Edit Post</a><br>
-	<a onclick="return confirm('Are you sure?');" class="button" href="delete/<?= $post->id; ?>">Delete Post</a>
+	<a onclick="return confirm('Are you sure?');" class="button" href="delete/<?= $post->id; ?>">Delete Post</a><br>
+	<a class="button" href="links/<?= $post->id; ?>">Add Links</a>
 </div>
 	</div>
 <?php endforeach ?>
