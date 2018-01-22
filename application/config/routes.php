@@ -68,3 +68,5 @@ $route['news-site/post/(:any)'] = 'news/post/$1';
 $route['news-site/categorie/(:any)'] = 'news/categorie/$1';
 $route['news-site/categories'] = 'news/categories';
 $route['news-site/links/(:any)'] = 'news/links/$1';
+$route['news-site/upvote/(:any)'] = 'news/upvote/$1';
+$route['news-site/downvote/(:any)'] = 'news/downvote/$1';

@@ -25,11 +25,12 @@
     </div>
 <p class="Line"></p>
     <div class="inputs">
+        <label for="image">Image:</label>
+        <input type="file" name="image" id="image"/><span>*not required</span>
     </div>
 <p class="Line"></p>
         <input type="submit" value="Create"/>
         <a class="button" href="home">Go back</a>
 
     </form>
-
 </main>

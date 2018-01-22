@@ -24,6 +24,10 @@
 		<?php endforeach ?>
 		</p>
 <?php } ?>
+	<p class="votes">
+		<span class="voteborder"><a href="../upvote/<?= $post[0]->id ?>"><img class="vote" src="../images/like.png"></a> <?= $post[0]->upvote;?></span>
+		<span class="voteborder"><a href="../downvote/<?= $post[0]->id ?>"><img class="vote" src="../images/dislike.png"></a> <?= $post[0]->downvote;?></span>
+	</p>
 </div>
 <?php foreach ($comments as $comment): ?>
 	<div class="comments">

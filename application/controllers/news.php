@@ -188,4 +188,25 @@ class News extends CI_Controller {
         }
         redirect('home');
     }
+    public function upvote() {
+        $id = $this->uri->segment(3);
+        $session_data = $this->session->userdata('logged_in');
+        $uid = $session_data['id'];
+        $result = $this->news_model->vote_up($id, $uid);
+            if ($result == 'Nya') {
+                redirect('post/'.$id);
+        }
+        redirect('post/'.$id);
+    }
+
+    public function downvote() {
+        $id = $this->uri->segment(3);
+        $session_data = $this->session->userdata('logged_in');
+        $uid = $session_data['id'];
+        $result = $this->news_model->vote_down($id, $uid);
+            if ($result == 'Nya') {
+                redirect('post/'.$id);
+        }
+        redirect('post/'.$id);
+    }
 }
