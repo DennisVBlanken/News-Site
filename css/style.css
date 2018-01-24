@@ -365,3 +365,16 @@ select{
 	border: 1px solid black;
 	padding: 10px 2px 1px 2px;
 }
+.fb-comments{
+	float: right;
+	background-color: white;
+	z-index: -99;
+	position: absolute;
+	right: -44%;
+	top: 7%;
+	border: 2px solid darkred;
+	border-radius: 12px;
+	padding-left: 10px;
+	width: 315px;
+	opacity: 0.85;
+}

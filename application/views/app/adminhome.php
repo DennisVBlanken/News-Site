@@ -1,4 +1,14 @@
 <?php if ($rolename === 'Admin') {}else redirect('home') ?>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
 <div id="wrap">
 <div id="widget">
@@ -9,6 +19,7 @@
 	</div>
 	<?php endforeach ?>
 </div>
+<div class="fb-comments" data-href="http://localhost/news-site/home" data-width="200" data-numposts="8"></div>
 <main id="home">
 <h1 id="header">Admin Home</h1>
 <span id="usermenu">
