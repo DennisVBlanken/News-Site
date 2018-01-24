@@ -20,6 +20,11 @@
 	<?php endforeach ?>
 </div>
 <div class="fb-comments" data-href="http://localhost/news-site/home" data-width="180" data-numposts="8"></div>
+
+<div class="twitterwidget">
+<a class="twitter-timeline" data-width="260" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/DaVinciCollege?ref_src=twsrc%5Etfw">Tweets by DaVinciCollege</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 <main id="home">
 <h1 id="header2">Home</h1>
 <span id="usermenu">
