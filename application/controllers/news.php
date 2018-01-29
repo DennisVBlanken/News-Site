@@ -9,6 +9,7 @@ class News extends CI_Controller {
         require_once '/Faker/src/autoload.php';
     }
 
+
     public function index() {
         $data['title'] = 'News site';
         $data['menu'] = $this->news_model->get_menu();
@@ -18,6 +19,7 @@ class News extends CI_Controller {
         $this->load->view('app/login', $data);
         $this->load->view('templates/footer');
 	}
+
 
     public function register() {
         $data['title'] = 'Register';
@@ -29,8 +31,10 @@ class News extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+
     public function categories() {
         $data['title'] = 'Categories';
+
         $session_data = $this->session->userdata('logged_in');
         $data['userid'] = $session_data['id'];
         $data['username'] = $session_data['username'];
@@ -42,12 +46,12 @@ class News extends CI_Controller {
         $this->load->view('app/categories', $data);
         $this->load->view('templates/footer');
     }
-
     public function categorie() {
         $id = $this->uri->segment(3);
         $data['posts'] = $this->news_model->get_posts_bc($id);
         $title = $this->news_model->get_categorie($id);
         $data['title'] = $title[0]->name;
+
         $session_data = $this->session->userdata('logged_in');
         $data['userid'] = $session_data['id'];
         $data['username'] = $session_data['username'];
@@ -58,11 +62,13 @@ class News extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+
     public function post() {
         $id = $this->uri->segment(3);
         $data['post'] = $this->news_model->get_post($id);
         $data['id'] = $id;
         $data['title'] = 'Read more...';
+
         $session_data = $this->session->userdata('logged_in');
         $data['userid'] = $session_data['id'];
         $data['username'] = $session_data['username'];
@@ -84,11 +90,11 @@ class News extends CI_Controller {
         $this->form_validation->set_rules('postid', 'Postid', 'required');
         $this->form_validation->set_rules('userid', 'Userid', 'required');
 
+
         $id = $this->uri->segment(3);
         if ($this->form_validation->run() === FALSE) {
-                redirect('post/'.$id);
-        }
-    else{
+            redirect('post/'.$id);
+        } else{
             $result = $this->news_model->post_comment();
             if ($result == 'Nya') {
                 redirect('post/'.$id);
@@ -96,6 +102,7 @@ class News extends CI_Controller {
         redirect('post/'.$id);
         }
     }
+
 
     public function links() {
         $this->load->helper(array('form'));
@@ -122,6 +129,7 @@ class News extends CI_Controller {
             }
         }
     }
+
 
     public function create() {
         $this->load->helper(array('form'));
@@ -188,6 +196,8 @@ class News extends CI_Controller {
         }
         redirect('home');
     }
+
+
     public function upvote() {
         $id = $this->uri->segment(3);
         $session_data = $this->session->userdata('logged_in');
@@ -198,7 +208,6 @@ class News extends CI_Controller {
         }
         redirect('post/'.$id);
     }
-
     public function downvote() {
         $id = $this->uri->segment(3);
         $session_data = $this->session->userdata('logged_in');

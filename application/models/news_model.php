@@ -6,6 +6,7 @@ class News_model extends CI_Model {
 		$this->load->database();
     }
 
+
     public function login($username, $password) {
         $this->db->select('*');
         $this->db->from('users');
@@ -14,12 +15,12 @@ class News_model extends CI_Model {
         $this->db->limit(1);
 
         $query = $this->db->get();
-        
     if($query -> num_rows() == 1){
         return $query->result();
-    } else {
-    return false;}
+    } else{
+        return false;}
     }
+
 
     public function get_users() {
         $this->db->select('*');
@@ -128,102 +129,108 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
+
     public function post_comment() {
-    $this->load->helper('url');
+        $this->load->helper('url');
 
-    $data = array(
-        'comment' => $this->input->post('comment'),
-        'postid' => $this->input->post('postid'),
-        'userid' => $this->input->post('userid')
-    );
-    $this->db->insert('comments', $data);
+        $data = array(
+            'comment' => $this->input->post('comment'),
+            'postid' => $this->input->post('postid'),
+            'userid' => $this->input->post('userid')
+        );
+        $this->db->insert('comments', $data);
 
-    return 'Nya';
+        return 'Nya';
     }
+
 
     public function add_link($id) {
-    $this->load->helper('url');
-    $data = array(
-        'postid' => $id,
-        'title' => $this->input->post('title'),
-        'url' => $this->input->post('url')
-    );
-        $this->db->insert('bijlages', $data);
-    return 'Nya';   
+        $this->load->helper('url');
+        $data = array(
+            'postid' => $id,
+            'title' => $this->input->post('title'),
+            'url' => $this->input->post('url')
+        );
+            $this->db->insert('bijlages', $data);
+        return 'Nya';   
     }
+
 
     public function create_post() {
-    $this->load->helper('url');
-    if ($this->input->post('image')) {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 100;
-        $config['max_filename_increment'] = 5;
+        $this->load->helper('url');
+        if ($this->input->post('image')) {
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 100;
+            $config['max_filename_increment'] = 5;
 
-        $this->load->library('upload', $config);
-    if( ! $this->upload->do_upload('image')){
-            $error = array('error' => $this->upload->display_errors());
+            $this->load->library('upload', $config);
+        if( ! $this->upload->do_upload('image')){
+                $error = array('error' => $this->upload->display_errors());
 
-            $this->load->view('app/create', $error);
-        } else{
-            $image_data = $this->upload->data();
+                $this->load->view('app/create', $error);
+            } else{
+                $image_data = $this->upload->data();
 
-    $date = new DateTime();
-    $data = array(
-        'title' => $this->input->post('title'),
-        'content' => $this->input->post('content'),
-        'cid' => $this->input->post('cid'),
-        'time' => $date->format('Y-m-d H:i:s'),
-        'image' => $image_data['file_name']
-    );
-        $this->db->insert('posts', $data);
-    return 'Nya';   
-        }
-    }else{
         $date = new DateTime();
         $data = array(
-        'title' => $this->input->post('title'),
-        'content' => $this->input->post('content'),
-        'cid' => $this->input->post('cid'),
-        'time' => $date->format('Y-m-d H:i:s'),
-        'image' => null
-    );
-        $this->db->insert('posts', $data);
-    return 'Nya'; 
+            'title' => $this->input->post('title'),
+            'content' => $this->input->post('content'),
+            'cid' => $this->input->post('cid'),
+            'time' => $date->format('Y-m-d H:i:s'),
+            'image' => $image_data['file_name']
+        );
+                $this->db->insert('posts', $data);
+                return 'Nya';   
+            }
+        }else{
+            $date = new DateTime();
+            $data = array(
+            'title' => $this->input->post('title'),
+            'content' => $this->input->post('content'),
+            'cid' => $this->input->post('cid'),
+            'time' => $date->format('Y-m-d H:i:s'),
+            'image' => null
+        );
+                $this->db->insert('posts', $data);
+                return 'Nya'; 
+            }
         }
-    }
 
     public function update_post($id) {
-    $date = new DateTime();
-    $data = array(
-        'id' => $id,
-        'title' => $this->input->post('title'),
-        'content' => $this->input->post('content'),
-        'cid' => $this->input->post('cid'),
-        'time' => $date->format('Y-m-d H:i:s')
-    );
+        $date = new DateTime();
+        $data = array(
+            'id' => $id,
+            'title' => $this->input->post('title'),
+            'content' => $this->input->post('content'),
+            'cid' => $this->input->post('cid'),
+            'time' => $date->format('Y-m-d H:i:s')
+        );
 
-    $this->db->where('id', $id);
-    $this->db->update('posts', $data);
-    return "Nya";
+        $this->db->where('id', $id);
+        $this->db->update('posts', $data);
+        return "Nya";
+        }
+
+        public function delete_post($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('posts');
+
+        $this->db->where('postid', $id);
+        $this->db->delete('comments');
+        return "Nya";
     }
 
-    public function delete_post($id) {
-    $this->db->where('id', $id);
-    $this->db->delete('posts');
-
-    $this->db->where('postid', $id);
-    $this->db->delete('comments');
-    return "Nya";
-    }
 
     public function vote_up($id, $uid) {
         $this->db->where('pid', $id);
         $this->db->where('uid', $uid);
         $this->db->select('*');
         $this->db->from('votes');
+
         $y = $this->db->get();
         $x = $y->result();
+
         if ($x[0]->vote == 0) {
             $data = array('pid' => $id, 'uid' => $uid, 'vote' => 1);
             $this->db->insert('votes', $data);
@@ -231,10 +238,12 @@ class News_model extends CI_Model {
             $this->db->where('id', $id);
             $this->db->select('upvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $up = $query->result();
             $upvote = $up[0]->upvote + 1;
             $data = array('upvote' => $upvote);
+
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
     return 'Nya';
@@ -248,33 +257,38 @@ class News_model extends CI_Model {
             $this->db->where('id', $id);
             $this->db->select('downvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $down = $query->result();
             $downvote = $down[0]->downvote - 1;
             $data = array('downvote' => $downvote);
+
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
 
             $this->db->where('id', $id);
             $this->db->select('upvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $up = $query->result();
             $upvote = $up[0]->upvote + 1;
             $data = array('upvote' => $upvote);
+
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
     return 'Nya';
         }
     }
-
     public function vote_down($id, $uid) {
         $this->db->where('pid', $id);
         $this->db->where('uid', $uid);
         $this->db->select('*');
         $this->db->from('votes');
+
         $y = $this->db->get();
         $x = $y->result();
+
         if ($x[0]->vote == 0) {
             $data = array('pid' => $id, 'uid' => $uid, 'vote' => 2);
             $this->db->insert('votes', $data);
@@ -282,10 +296,12 @@ class News_model extends CI_Model {
             $this->db->where('id', $id);
             $this->db->select('downvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $down = $query->result();
             $downvote = $down[0]->downvote + 1;
             $data = array('downvote' => $downvote);
+
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
     return 'Nya';
@@ -298,20 +314,24 @@ class News_model extends CI_Model {
             $this->db->where('id', $id);
             $this->db->select('upvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $up = $query->result();
             $upvote = $up[0]->upvote - 1;
             $data = array('upvote' => $upvote);
+
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
 
             $this->db->where('id', $id);
             $this->db->select('downvote');
             $this->db->from('posts');
+
             $query = $this->db->get();
             $down = $query->result();
             $downvote = $down[0]->downvote + 1;
             $data = array('downvote' => $downvote);
+            
             $this->db->where('id', $id);
             $this->db->update('posts', $data);
     return 'Nya';

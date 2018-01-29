@@ -10,11 +10,13 @@
         <label for="title">Title:</label>
         <input type="text" size="20" id="title" name="title"/>
     </div>
+
 <p class="Line"></p>
     <div class="inputs">
         <label for="url">Url:</label>
         <input type="text" size="20" id="url" name="url"/>
     </div>
+    
 <p class="Line"></p>
         <input type="submit" value="Add"/>
         <a class="button" href="../home">Go back</a>

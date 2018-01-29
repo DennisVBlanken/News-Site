@@ -53,20 +53,29 @@ $route['default_controller'] = 'news';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+
 $route['news-site/home'] = 'home';
-$route['news-site/adminhome'] = 'adminhome';
 $route['news-site/home/logout'] = 'home/logout';
+
+$route['news-site/adminhome'] = 'adminhome';
 $route['news-site/adminhome/logout'] = 'adminhome/logout';
+
 $route['news-site/verifylogin'] = 'verifylogin';
-$route['news-site/verifyregister'] = 'verifyregister';
 $route['news-site/register'] = 'news/register';
-$route['news-site/postcomment/(:any)'] = 'news/postcomment/$1';
+$route['news-site/verifyregister'] = 'verifyregister';
+
 $route['news-site/create'] = 'news/create';
 $route['news-site/edit/(:any)'] = 'news/edit/$1';
 $route['news-site/delete/(:any)'] = 'news/delete/$1';
+
 $route['news-site/post/(:any)'] = 'news/post/$1';
-$route['news-site/categorie/(:any)'] = 'news/categorie/$1';
+$route['news-site/postcomment/(:any)'] = 'news/postcomment/$1';
+
 $route['news-site/categories'] = 'news/categories';
+$route['news-site/categorie/(:any)'] = 'news/categorie/$1';
+
 $route['news-site/links/(:any)'] = 'news/links/$1';
+
 $route['news-site/upvote/(:any)'] = 'news/upvote/$1';
 $route['news-site/downvote/(:any)'] = 'news/downvote/$1';
