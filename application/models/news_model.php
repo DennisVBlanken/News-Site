@@ -39,10 +39,15 @@ class News_model extends CI_Model {
         return $query->result();
     }
 
-    public function get_posts() {
+    public function get_posts($num) {
         $this->db->select('*');
         $this->db->from('posts');
         $this->db->order_by("time",'DESC');
+        if ($num = 1) {
+            $this->db->limit('6');
+        } else{
+        $this->db->limit('6',0+6*($num+1));
+        }
 
         $query = $this->db->get();
         return $query->result();

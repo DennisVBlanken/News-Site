@@ -1,4 +1,4 @@
-<?php if ($rolename === 'Admin') {redirect('adminhome');} ?>
+<?php if ($rolename === 'Admin') {redirect('adminhome/1');} ?>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -15,7 +15,7 @@
 	<h2>Recent updates:</h2>
 	<?php foreach ($latest as $x): ?>
 	<div id="latest">
-		<h3><a href="post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a></h3>
+		<h3><a href="../<?php base_url()?>post/<?php echo $x->id ?>" class="latest"><?php echo $x->title ?></a></h3>
 	</div>
 	<?php endforeach ?>
 </div>
@@ -29,11 +29,11 @@
 <h1 id="header2">Home</h1>
 <span id="usermenu">
 <span id="username"><?php echo $username ?>|</span>
-<a class="Link" href="home/logout">Logout</a>
+<a class="Link" href="../<?php base_url()?>logout">Logout</a>
 </span>
 	<?php foreach ($menu as $b): ?>
 	<div id="menu">
-		<a href="<?= $b->url ?>" class="menu"><?php echo $b->title ?></a>
+		<a href="../<?php base_url()?><?= $b->url ?>" class="menu"><?php echo $b->title ?></a>
 	</div>
 	<?php endforeach ?>
 <?php foreach ($posts as $post): ?>
@@ -42,10 +42,10 @@
 	<h1 class="postTitle"><?= $post->title; ?></h1>
 	<p class="postContent">
 		<?php if (isset($post->image)) {
-			echo '<img class="postImage" src="uploads/'.$post->image.'">';
+			echo '<img class="postImage" src="'.base_url().'uploads/'.$post->image.'">';
 		} echo $post->content; ?>
 	</p>
-	<a href="post/<?= $post->id; ?>">Read more...</a>
+	<a href="../<?php base_url()?>post/<?= $post->id; ?>">Read more...</a>
 </div>
 	</div>
 <?php endforeach ?>

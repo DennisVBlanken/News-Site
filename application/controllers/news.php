@@ -32,6 +32,55 @@ class News extends CI_Controller {
     }
 
 
+    public function home() {
+        if($this->session->userdata('logged_in')){
+            $session_data = $this->session->userdata('logged_in');
+            $data['title'] = 'Home';
+            $data['id'] = $session_data['id'];
+            $data['username'] = $session_data['username'];
+            $data['rolename'] = $session_data['rolename'];
+          
+            $num = $this->uri->segment(3);
+            $data['posts'] = $this->news_model->get_posts($num);
+            $data['menu'] = $this->news_model->get_menu();
+            $data['latest'] = $this->news_model->get_latest();
+            $this->load->view('templates/header', $data);
+            $this->load->view('app/home', $data);
+            $this->load->view('templates/footer');
+        } else{
+            //If no session, redirect to login page
+            redirect('');
+        }
+    }
+
+    public function adminhome() {
+        if($this->session->userdata('logged_in')){
+            $session_data = $this->session->userdata('logged_in');
+            $data['title'] = 'Admin Home';
+            $data['id'] = $session_data['id'];
+            $data['username'] = $session_data['username'];
+            $data['rolename'] = $session_data['rolename'];
+
+            $num = $this->uri->segment(3);
+            $data['posts'] = $this->news_model->get_posts($num);
+            $data['menu'] = $this->news_model->get_menu();
+            $data['latest'] = $this->news_model->get_latest();
+            $this->load->view('templates/header', $data);
+            $this->load->view('app/adminhome', $data);
+            $this->load->view('templates/footer');
+        } else{
+            //If no session, redirect to login page
+            redirect('');
+        }
+    }
+
+    public function logout() {
+        $this->session->unset_userdata('logged_in');
+        session_destroy();
+        redirect('home/1');
+    }
+
+
     public function categories() {
         $data['title'] = 'Categories';
 
@@ -125,7 +174,7 @@ class News extends CI_Controller {
     else{
         $result = $this->news_model->add_link($id);
             if ($result === 'Nya') {
-                redirect('home');
+                redirect('home/1');
             }
         }
     }
@@ -152,7 +201,7 @@ class News extends CI_Controller {
     else{
         $result = $this->news_model->create_post();
             if ($result === 'Nya') {
-                redirect('home');
+                redirect('home/1');
             }
         }
     }
@@ -180,7 +229,7 @@ class News extends CI_Controller {
                 $id = $_POST['id'];
                 $result = $this->news_model->update_post($id);
                 if ($result == 'Nya') {
-                    redirect('home');
+                    redirect('home/1');
             }
         }
     }
@@ -191,10 +240,10 @@ class News extends CI_Controller {
             $id = $this->uri->segment(3);
             $result = $this->news_model->delete_post($id);
                 if ($result == 'Nya') {
-                    redirect('home');
+                    redirect('home/1');
             }
         }
-        redirect('home');
+        redirect('home/1');
     }
 
 

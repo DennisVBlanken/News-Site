@@ -22,7 +22,7 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
-     redirect('home');
+     redirect('home/1');
    }
 
  }

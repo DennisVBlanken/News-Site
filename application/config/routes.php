@@ -55,11 +55,13 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 
-$route['news-site/home'] = 'home';
-$route['news-site/home/logout'] = 'home/logout';
+$route['news-site/home'] = 'news/home/1';
+$route['news-site/home/(:any)'] = 'news/home/index/$1';
 
-$route['news-site/adminhome'] = 'adminhome';
-$route['news-site/adminhome/logout'] = 'adminhome/logout';
+$route['news-site/logout'] = 'news/logout';
+
+$route['news-site/adminhome'] = 'news/adminhome/1';
+$route['news-site/adminhome/(:any)'] = 'news/adminhome/$1';
 
 $route['news-site/verifylogin'] = 'verifylogin';
 $route['news-site/register'] = 'news/register';
