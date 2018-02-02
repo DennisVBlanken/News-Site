@@ -6,7 +6,6 @@ class News extends CI_Controller {
         parent::__construct();
         $this->load->model('news_model');
         $this->load->helper('url_helper');
-        require_once '/Faker/src/autoload.php';
     }
 
 
